@@ -1,0 +1,38 @@
+<app-goback></app-goback>
+<form [formGroup]="saleForm" (ngSubmit)="submitForm()" class="form">
+  <div class="form-group">
+    <label for="sellerSelectOption">Seller:</label>
+    <select formControlName="sellerId" id="fromSellerSelectOption" class="form-control">
+      <option *ngFor="let option of sellerOptions" [value]="option.id">{{ option.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="productselectOption">Product:</label>
+    <select formControlName="productId" id="productSelectOption" class="form-control">
+      <option *ngFor="let option of productOptions" [value]="option.id">{{ option.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="flavorSelectOption">Flavor:</label>
+    <select formControlName="flavorId" id="flavorSelectOption" class="form-control">
+      <option *ngFor="let option of flavorsOptions" [value]="option.id">{{ option.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group ">
+    <label>Quantity: </label>
+    <input type="number" formControlName="quantity" placeholder="Quantity" class="form-control">
+  </div>
+
+  <div class="form-group ">
+    <label>Price: </label>
+    <input type="number" formControlName="price" placeholder="Price" class="form-control">
+  </div>
+
+  <!-- Otros campos -->
+
+  <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+

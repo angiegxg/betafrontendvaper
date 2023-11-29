@@ -1,0 +1,25 @@
+<!-- table-sale.component.html -->
+<app-goback></app-goback>
+<div class="container mt-3">
+  <h3 class="ribbon">Stock Table</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <ng-container *ngFor="let option of header">
+          <th scope="col">{{option}}</th>
+        </ng-container>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let option of files">
+        <tr>
+          <th scope="row">{{option.id}}</th>
+          <td>{{option.product}}</td>
+          <td>{{option.flavor}}</td>
+          <td>{{option.quantity}}</td>
+          <td>{{option.seller}}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

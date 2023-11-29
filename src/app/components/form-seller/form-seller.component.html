@@ -1,0 +1,15 @@
+<app-goback></app-goback>
+<form [formGroup]="sellerForm" (ngSubmit)="submitForm()" class="mt-3">
+    <div class="mb-3">
+      <label for="sellerInput" class="form-label">Nombre:</label>
+      <input type="text" formControlName="seller" id="sellerInput" class="form-control" placeholder="Nombre">
+    </div>
+  
+    <div class="mb-3">
+      <label for="commissionInput" class="form-label">Comisión:</label>
+      <input type="text" formControlName="commission" id="commissionInput" class="form-control" placeholder="Comisión">
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+  

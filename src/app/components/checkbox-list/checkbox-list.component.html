@@ -1,0 +1,6 @@
+<div *ngFor="let item of items">
+  <label>
+    <input type="checkbox" [(ngModel)]="item.checked" (change)="onCheckboxChange(item)">
+    {{ item.name }}
+  </label>
+</div>

@@ -1,0 +1,11 @@
+<!-- <ul>
+    <li *ngFor="let flavor of flavors$ | async">{{ flavor.flavor }}</li>
+  </ul>
+
+<p>The flavor</p>   -->
+<div class="grid">
+  <ng-container  *ngFor="let item of entity ">
+    <app-card [entity]="item"></app-card>
+  </ng-container>
+
+</div>

@@ -1,0 +1,12 @@
+<div class="flex">
+  <app-goback></app-goback>
+  <h3 class="ribbon">New Flavor</h3>
+</div>
+<form [formGroup]="flavorForm" (ngSubmit)="submitForm()" class="mt-3">
+    <div class="mb-3">
+      <input type="text" formControlName="flavor" class="form-control" placeholder="Nombre">
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+  

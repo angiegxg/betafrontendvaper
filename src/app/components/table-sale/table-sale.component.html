@@ -1,0 +1,43 @@
+<!-- table-sale.component.html -->
+<app-goback></app-goback>
+
+
+<div class="container mt-3">
+    <h3 class="ribbon">Sales Table</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Date</th>
+          <th>Product</th>
+          <th>Flavor</th>
+          <th>Seller</th>
+          <th>Qty</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let sale of files">
+          <tr *ngFor="let productSold of sale.productsSold; let first = first">
+            <td *ngIf="first">{{ sale.id }}</td>
+            <td>{{sale.date }}</td>
+            <td>{{ productSold.product }}</td>
+            <td>{{ productSold.flavor }}</td>
+            <td *ngIf="first">{{ sale.seller }}</td>
+            <td>{{ productSold.quantity }}</td>
+            <td *ngIf="first">€ {{ sale.total }}</td>
+          </tr>
+        </ng-container>
+       
+
+        
+      </tbody>
+    </table>
+
+<div class="totalSale">
+  <h3>Total en Ventas: </h3>
+  <p class="ribbonSale">€ {{totalSales}}  </p>
+</div>
+
+  </div>
+  

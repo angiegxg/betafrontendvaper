@@ -1,0 +1,242 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Roboto+Flex:opsz@8..144&display=swap");
+@import '~bootstrap/dist/css/bootstrap.min.css';
+:root {
+  --main: #ff2e63;
+  --dark: #252a34;
+  --third: #08d9d6;
+  --gray: #eaeaea;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, th, label {
+  font-family: "Black Ops One", sans-serif;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6, label {
+  font-family: "Black Ops One", sans-serif;
+  color: whitesmoke !important;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: var(--gray);
+  position: relative;
+  padding: 20px;
+  background: linear-gradient(to top, var(--dark), rgba(37, 42, 52, 0.8156862745)), url("https://i.pinimg.com/736x/14/3b/d9/143bd9cbee6fd158c62175b685094122.jpg") no-repeat center/cover;
+}
+
+a {
+  text-decoration: none;
+  color: var(--main);
+  font-weight: bold;
+}
+
+/* Fondo oscuro con menú abierto */
+.dark-bg {
+  background: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 500;
+  opacity: 0;
+  width: 0;
+}
+
+.visible {
+  opacity: 0.7;
+  width: 100vw;
+  transition: opacity ease-in 0.5s;
+  display: block;
+}
+
+/* MENU */
+.menu ul {
+  list-style: none;
+}
+
+.menu-mob {
+  position: fixed;
+  z-index: 700;
+  left: -100vw;
+  top: 0;
+  background: var(--dark);
+  height: 100vh;
+  width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 1s;
+}
+
+.menu-open {
+  width: 100vw;
+  left: 0;
+  transition: all 1s;
+}
+
+.menu-mob li {
+  margin: 20px 0;
+}
+
+.top-bar {
+  height: 50px;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 900;
+  box-shadow: 0 0 12px var(--main);
+}
+
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* CARD */
+.card {
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 0 12px var(--main);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.card header {
+  border-radius: 10px 10px 0 0;
+  background: var(--dark);
+  padding: 15px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+i:not(.heart) {
+  margin-right: 5px;
+}
+
+.card header i {
+  color: var(--main);
+}
+
+.card main {
+  max-width: 150px;
+  margin: auto;
+}
+
+.subject {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+
+.subject i {
+  font-size: 1.5rem;
+}
+
+.mark {
+  color: var(--main);
+  font-weight: 200;
+  font-size: 1rem;
+  writing-mode: horizontal-tb;
+}
+
+.butoon {
+  margin: 10px;
+}
+
+.card footer {
+  background: var(--third);
+  text-align: center;
+  padding: 8px 0;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: white;
+  border-radius: 0 0 10px 10px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  min-height: calc(100vh - 140px);
+  align-content: center;
+}
+
+.astronaut img {
+  /* Imágenes responsive (la forma clásica, importante para el test de la lección) */
+  /* max-width: 100%;
+  height: auto; */
+  /* ---------------------------------------------------------------------------- */
+  /* Otra opción para imágenes responsive */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* ----------------------------------- */
+  border-radius: 10px;
+}
+
+footer {
+  height: 50px;
+  background: var(--third);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+footer i {
+  color: var(--main);
+  margin-left: 5px;
+}
+
+/* MEDIA QUERIES */
+/* HTML: <div class="ribbon">Your text content</div> */
+.ribbon {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin: 10px;
+}
+
+.ribbon {
+  --r: .8em; /* control the ribbon shape */
+  padding-inline: calc(var(--r) + 0.3em);
+  line-height: 1;
+  clip-path: polygon(0 0, 100% 0, calc(100% - var(--r)) 50%, 100% 100%, 0 100%, var(--r) 50%);
+  background: var(--main); /* the main color */
+  width: fit-content;
+}
+
+.flex {
+  display: flex;
+  gap: 20px;
+}
+
+@media only screen and (orientation: landscape) {
+  /* Podemos cambiar la posición de los CTA para facilitar el click del usuario que pasará a usar las 2 manos sobre el móvil  */
+}/*# sourceMappingURL=styles.css.map */
