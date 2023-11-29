@@ -108,7 +108,7 @@ export class FormProductComponent  {
       // Construye el objeto requestData con la sintaxis deseada
      
 
-      this.http.post('http://localhost:3001/product', requestData)
+      this.http.post('https://tukivaper.onrender.com/product', requestData)
         .subscribe(
           (response) => {
             console.log('Respuesta del servidor:', response);

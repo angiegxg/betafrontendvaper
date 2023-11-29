@@ -7,7 +7,7 @@ import types from 'src/app/models/interface.interface';
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:3001/product'; 
+  private apiUrl = 'https://tukivaper.onrender.com/product'; 
 
   constructor(private http: HttpClient) {}
 

@@ -7,7 +7,7 @@ import types from 'src/app/models/interface.interface';
   providedIn: 'root',
 })
 export class SaleService {
-  private apiUrl = 'http://localhost:3001/sale'; // Cambiado el nombre de la entidad
+  private apiUrl = 'https://tukivaper.onrender.com/sale'; // Cambiado el nombre de la entidad
 
   constructor(private http: HttpClient) {}
 

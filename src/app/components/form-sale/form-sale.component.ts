@@ -142,7 +142,7 @@ submitForm() {
 
 
 
-    this.http.post('http://localhost:3001/sale', requestData)
+    this.http.post('https://tukivaper.onrender.com/sale', requestData)
     .subscribe(
       (response) => {
         console.log('Respuesta del servidor:', response);

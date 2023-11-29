@@ -8,7 +8,7 @@ import types from 'src/app/models/interface.interface';
   providedIn: 'root',
 })
 export class FlavorService {
-  private apiUrl = 'https://stockvaper-dev-njpn.2.us-1.fl0.io/flavor'; 
+  private apiUrl = 'https://tukivaper.onrender.com/flavor'; 
 
   constructor(private http: HttpClient) {}
 

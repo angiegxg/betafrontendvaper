@@ -35,7 +35,7 @@ export class FormfavorComponent {
       };
   
       // Realiza la solicitud HTTP POST
-      this.http.post('http://localhost:3001/flavor', requestData)
+      this.http.post('https://tukivaper.onrender.com/flavor', requestData)
         .subscribe(
           (response) => {
             console.log('Respuesta del servidor:', response);

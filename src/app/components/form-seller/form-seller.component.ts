@@ -37,7 +37,7 @@ export class FormSellerComponent {
       console.log(requestData)
   
       // Realiza la solicitud HTTP POST
-      this.http.post('http://localhost:3001/seller', requestData)
+      this.http.post('https://tukivaper.onrender.com/seller', requestData)
       .subscribe(
         (response) => {
           console.log('Respuesta del servidor:', response);

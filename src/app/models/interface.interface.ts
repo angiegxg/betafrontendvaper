@@ -1,4 +1,4 @@
-import * as types from '../../../../server/src/types'
+import * as types from './backend.interface'
 
 export default  types
 

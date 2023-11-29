@@ -7,12 +7,12 @@ import types from 'src/app/models/interface.interface';
   providedIn: 'root',
 })
 export class DistributionService {
-  private apiUrl = 'http://localhost:3001/distribution';
+  private apiUrl = 'https://tukivaper.onrender.com/distribution';
 
   constructor(private http: HttpClient) {}
 
-  getAllDistribution(): Observable<types.DistributionInterface[]> {
+  getAllDistribution(): Observable<types.Distribution[]> {
     console.log('Realizando la solicitud de obtener las distribuciones...');
-    return this.http.get<types.DistributionInterface[]>(this.apiUrl);
+    return this.http.get<types.Distribution[]>(this.apiUrl);
   }
 }

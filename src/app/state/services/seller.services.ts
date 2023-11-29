@@ -9,7 +9,7 @@ import { Store } from "@ngrx/store";
     providedIn: 'root',
 })
 export class SellerService {
-    private apiUrl= 'http://localhost:3001/seller'
+    private apiUrl= 'https://tukivaper.onrender.com/seller'
 
     constructor(private http: HttpClient, private store:Store){}
 
