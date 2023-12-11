@@ -1,12 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { FlavorComponent } from './pages/flavor/flavor.component';
-import { ProductComponent } from './pages/product/product.component';
-import { SellerComponent } from './pages/seller/seller.component';
-// import { FormComponent } from './components/form/form.component';
-
-import { FormselectComponent } from './components/formselect/formselect.component';
 import { FormfavorComponent } from './components/formfavor/formfavor.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
 import { FormSellerComponent } from './components/form-seller/form-seller.component';
@@ -15,15 +9,14 @@ import { FormDistributionComponent } from './components/form-distribution/form-d
 import { TableStockComponent } from './components/table-stock/table-stock.component';
 import { TableSaleComponent } from './components/table-sale/table-sale.component';
 import { FormSaleComponent } from './components/form-sale/form-sale.component';
+import { LoginComponent } from './log/login/login.component';
+import { TableDistributionComponent } from './components/table-distribution/table-distribution.component';
+import { SingUpComponent } from './log/sing-up/sing-up.component';
 const routes: Routes = [
-  {path:'', component: HomeComponent},
-  // { path: 'form/:entity', component: FormComponent},
- 
-  { path: 'formselect/:entity', component:FormselectComponent },
+  {path:'home', component: HomeComponent},
+  {path:'singup', component: SingUpComponent},
 
-  {path:'flavor', component: FlavorComponent},
-  {path:'product', component: ProductComponent},
-  {path:'seller', component: SellerComponent},
+  {path:'', component: LoginComponent},
   {path:'formflavor', component: FormfavorComponent},
   {path:'formproduct', component: FormProductComponent},
   {path:'formseller', component: FormSellerComponent},
@@ -32,6 +25,7 @@ const routes: Routes = [
   { path: 'formsale', component:FormSaleComponent },
   { path: 'tableStock', component:TableStockComponent },
   { path: 'tablesale', component:TableSaleComponent },
+  { path: 'tableDistribution', component:TableDistributionComponent },
   
 
 ];

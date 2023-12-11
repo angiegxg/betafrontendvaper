@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { GobackComponent } from '../goback/goback.component';
+import { environment } from 'src/app/environments/environments';
 
 @Component({
   selector: 'app-formfavor',
@@ -31,14 +32,21 @@ export class FormfavorComponent {
   
       // Crea el objeto que contiene los datos que deseas enviar
       const requestData = {
-        flavors: [{ flavor: formData.flavor }]
+        flavors: [{ flavor: formData.flavor }],
+        userId: +localStorage.getItem('id')!
       };
+
+      
+
+      
   
       // Realiza la solicitud HTTP POST
-      this.http.post('https://tukivaper.onrender.com/flavor', requestData)
+      this.http.post(environment.apiUrl+'flavor', requestData)
         .subscribe(
           (response) => {
             console.log('Respuesta del servidor:', response);
+            const responseString = JSON.stringify(response, null, 2)
+            alert(responseString);
           },
           (error) => {
             console.error('Error al enviar datos:', error);

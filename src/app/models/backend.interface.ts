@@ -85,6 +85,7 @@ export interface Flavor {
   
   export interface Distribution {
     id?: number
+    date?: Date
     quantity: number
     fromStockId: number
     sentFromStock?: Stock

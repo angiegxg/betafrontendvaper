@@ -10,6 +10,7 @@ import * as ProductSelectors from '../../state/selector/product.selector'
 import types, { SelectOption } from 'src/app/models/interface.interface';
 import { Observable } from 'rxjs';
 import { GobackComponent } from '../goback/goback.component';
+import { environment } from 'src/app/environments/environments';
 
 @Component({
   selector: 'app-form-distribution',
@@ -76,50 +77,43 @@ submitForm() {
     const formData = this.DistributionForm.value;
 
     
-    //[
-  //   {
-  //     "fromStock": {
-  //       "productId": 1,
-  //       "flavorId": 3,
-  //       "sellerId": 1
-  //     },
-  //     "toStock": {
-  //       "productId": 1,
-  //       "flavorId": 3,
-  //       "sellerId": 2
-  //     },
-  //     "quantity": 10
-  //   }
-  // ]
+
 
   
 
-  const requestData = [
+    const requestData = 
     {
-      fromStock: {
-        productId: +formData.fromproductId,
-        flavorId: +formData.fromflavorId,
-        sellerId: +formData.fromsellerId
-      },
-      toStock: {
-        productId: +formData.fromproductId,
-        flavorId: +formData.fromflavorId,
-        sellerId: +formData.toSellerId
-      },
-      quantity: +formData.quantity
-    }
-  ];
+      distribution:
+      [
+        {
+          sentFromStock: {
+            productId: +formData.fromproductId,
+            flavorId: +formData.fromflavorId,
+            sellerId: +formData.fromsellerId
+          },
+          receivedAtStock: {
+            productId: +formData.fromproductId,  // Usa toProductId en lugar de fromproductId
+            flavorId: +formData.fromflavorId,    // Usa toFlavorId en lugar de fromflavorId
+            sellerId: +formData.toSellerId
+          },
+          quantity: +formData.quantity
+        }
+      ],
+      userId: +localStorage.getItem('id')!
+    };
+  
   
 
     console.log(requestData)
 
 
 
-    this.http.post('https://tukivaper.onrender.com/distribution', requestData)
+    this.http.post(environment.apiUrl+'distribution', requestData)
     .subscribe(
       (response) => {
-        console.log('Respuesta del servidor:', response);
-        alert(response);
+        console.log('distribucion realizada correctamente:', response);
+        const responseString = JSON.stringify(response, null, 2)
+            alert(responseString);
       },
       (error) => {
         console.error('Error al enviar datos:', error);

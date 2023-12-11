@@ -54,6 +54,9 @@ export class CardComponent {
     if (this.entity==="Sales"){
       this.router.navigate(['tablesale']); 
     }
+    if (this.entity==="Distributions"){
+      this.router.navigate(['tableDistribution']); 
+    }
 
     
   }

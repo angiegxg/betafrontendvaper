@@ -10,6 +10,7 @@ import * as ProductSelectors from '../../state/selector/product.selector'
 import types, { SelectOption } from 'src/app/models/interface.interface';
 import { Observable } from 'rxjs';
 import { GobackComponent } from '../goback/goback.component';
+import { environment } from 'src/app/environments/environments';
 
 @Component({
   selector: 'app-form-stock',
@@ -80,22 +81,29 @@ submitForm() {
   // }
 
     const requestData = {
-      productId:+formData.productId,
-      flavorId:+formData.flavorId,
-      quantity:+formData.quantity,
-      sellerId:+formData.sellerId
+      stock:{
+        productId:+formData.productId,
+        flavorId:+formData.flavorId,
+        quantity:+formData.quantity,
+        sellerId:+formData.sellerId
+
+      },
+      userId:+localStorage.getItem('id')!
 
     };
+
+   
 
     console.log(requestData)
 
 
 
-    this.http.post('https://tukivaper.onrender.com/stock', requestData)
+    this.http.post(environment.apiUrl+'stock', requestData)
     .subscribe(
       (response) => {
         console.log('Respuesta del servidor:', response);
-        alert(response);
+        const responseString = JSON.stringify(response, null, 2)
+            alert(responseString);
       },
       (error) => {
         console.error('Error al enviar datos:', error);

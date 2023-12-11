@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import types from 'src/app/models/interface.interface';
+import { environment } from 'src/app/environments/environments';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FlavorService {
-  private apiUrl = 'https://tukivaper.onrender.com/flavor'; 
+  private apiUrl = environment.apiUrl+'flavor/'+localStorage.getItem('id'); 
 
   constructor(private http: HttpClient) {}
 

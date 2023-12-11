@@ -18,7 +18,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-p{
+p, a{
   font-family: "Roboto", sans-serif;
 }
 
@@ -102,10 +102,10 @@ a {
 
 .top-bar {
   height: 50px;
-  background: var(--dark);
+  background: var(--dark) !important;
   display: flex;
   align-items: center;
-  position: relative;
+  justify-content: space-between;
   z-index: 900;
   box-shadow: 0 0 12px var(--main);
 }

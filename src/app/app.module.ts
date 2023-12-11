@@ -12,18 +12,10 @@ import { flavorReducer } from './state/reducers/flavor.reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductEffects } from './state/effects/product.effects';
 import { ProductReducer } from './state/reducers/product.reducer';
-import { FlavorComponent } from './pages/flavor/flavor.component';
-import { ProductComponent } from './pages/product/product.component';
-import { SellerComponent } from './pages/seller/seller.component';
 import { CardComponent } from './components/card/card.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
-import { SelectComponent } from './components/select/select.component';
-import { FormselectComponent } from './components/formselect/formselect.component';
-import { CheckboxListComponent } from './components/checkbox-list/checkbox-list.component';
 import { sellerReducer } from './state/reducers/seller.reducer';
 import { SellerEffects } from './state/effects/seller.effects';
-import { FormProductSoldComponent } from './components/form-product-sold/form-product-sold.component';
 import { SelectControlService } from './services/select-control.service';
 import { FormfavorComponent } from './components/formfavor/formfavor.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
@@ -38,48 +30,59 @@ import { TableSaleComponent } from './components/table-sale/table-sale.component
 import { SaleEffects } from './state/effects/sale.effects';
 import { SaleReducer } from './state/reducers/sale.reducer';
 import { GobackComponent } from './components/goback/goback.component';
+import { LoginComponent } from './log/login/login.component';
+import { LoginServiceService } from './log/login/login.service.service';
+import { TableDistributionComponent } from './components/table-distribution/table-distribution.component';
+import { DistributionReducer } from './state/reducers/distribution.reducer';
+import { DistributionEffects } from './state/effects/distribution.effect';
+import { SingUpComponent } from './log/sing-up/sing-up.component';
+import { SingUpServiceService } from './log/sing-up/sing-up-service.service';
+import { NavComponent } from './components/nav/nav.component';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent,
+   
+  
+   
   ],
   imports: [
     
     BrowserModule,
+    LoginComponent,
+    SingUpComponent,
     FormStockComponent,
+    TableDistributionComponent,
     GobackComponent,
     FormDistributionComponent,
     TableStockComponent,
     FormSellerComponent,
     FormProductComponent,
-    FormProductSoldComponent,
+   
     FormfavorComponent,
     FormSaleComponent,
     FormsModule,
     ReactiveFormsModule,
-    SelectComponent,
-    FormProductSoldComponent,
     CardComponent,
    TableSaleComponent,
-    CheckboxListComponent,
-    FormselectComponent,
     TableSaleComponent,
     HomeComponent,
-    FlavorComponent,
-    ProductComponent,
-    SellerComponent,
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({}),
-    EffectsModule.forRoot([FlavorEffects, ProductEffects, SellerEffects, StockEffects,SaleEffects]),
+    EffectsModule.forRoot([FlavorEffects, ProductEffects, SellerEffects, StockEffects,SaleEffects, DistributionEffects]),
     StoreModule.forFeature('flavors',flavorReducer),
     StoreModule.forFeature('products',ProductReducer),
     StoreModule.forFeature('sellers',sellerReducer),
     StoreModule.forFeature('stocks',StockReducer),
-    StoreModule.forFeature('sales',SaleReducer)
+    StoreModule.forFeature('sales',SaleReducer),
+    StoreModule.forFeature('distributions',DistributionReducer)
    
   ],
-  providers: [SelectControlService],
+  providers: [SelectControlService, LoginServiceService,SingUpServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

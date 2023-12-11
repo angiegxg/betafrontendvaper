@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { GobackComponent } from '../goback/goback.component';
+import { environment } from 'src/app/environments/environments';
 
 @Component({
   selector: 'app-form-seller',
@@ -32,16 +33,17 @@ export class FormSellerComponent {
   
       // Crea el objeto que contiene los datos que deseas enviar
       const requestData = {
-        seller: { name: formData.seller, commission: parseInt(formData.commission)}
+        seller: { name: formData.seller, commission: parseInt(formData.commission), userId:+localStorage.getItem('id')!}
       };
       console.log(requestData)
   
       // Realiza la solicitud HTTP POST
-      this.http.post('https://tukivaper.onrender.com/seller', requestData)
+      this.http.post(environment.apiUrl+'seller', requestData)
       .subscribe(
         (response) => {
           console.log('Respuesta del servidor:', response);
-          alert(response);
+          const responseString = JSON.stringify(response, null, 2)
+          alert(responseString);
         },
         (error) => {
           console.error('Error al enviar datos:', error);

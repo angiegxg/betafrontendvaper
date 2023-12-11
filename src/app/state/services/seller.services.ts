@@ -4,12 +4,13 @@ import { Observable, map } from "rxjs";
 import types from 'src/app/models/interface.interface';
 import * as SellerActions from '../actions/seller.actions'
 import { Store } from "@ngrx/store";
+import { environment } from "src/app/environments/environments";
 
 @Injectable({
     providedIn: 'root',
 })
 export class SellerService {
-    private apiUrl= 'https://tukivaper.onrender.com/seller'
+    private apiUrl= environment.apiUrl+'seller/'+localStorage.getItem('id')
 
     constructor(private http: HttpClient, private store:Store){}
 

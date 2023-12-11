@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import types from 'src/app/models/interface.interface';
+import { environment } from 'src/app/environments/environments';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StockService {
-  private apiUrl = 'https://tukivaper.onrender.com/stock';
+  private apiUrl = environment.apiUrl+'stock/'+localStorage.getItem('id')
 
   constructor(private http: HttpClient) {}
 

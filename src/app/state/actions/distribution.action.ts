@@ -5,5 +5,5 @@ export const loadDistributions = createAction('[Distribution] Load Distributions
 
 export const loadDistributionsSuccess = createAction(
   '[Distribution] Load Distributions Success', // Cambiado el nombre de la acción
-  props<{ distributions: types.DistributionInterface[] }>() // Cambiado el nombre de la propiedad
+  props<{ distributions: types.Distribution[] }>() // Cambiado el nombre de la propiedad
 );

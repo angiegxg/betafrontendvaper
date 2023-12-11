@@ -10,6 +10,7 @@ import * as ProductSelectors from '../../state/selector/product.selector'
 import types, { FieldConfig } from 'src/app/models/interface.interface';
 import { Observable } from 'rxjs';
 import { GobackComponent } from '../goback/goback.component';
+import { environment } from 'src/app/environments/environments';
 
 @Component({
   selector: 'app-form-product',
@@ -79,36 +80,17 @@ export class FormProductComponent  {
           img: formData.img,
           cost: +formData.price,
         },
-        flavorIds: formData.flavorIds
+        flavorIds: formData.flavorIds,
+        userId: +localStorage.getItem('id')!
       }
+
+      
       
       console.log(requestData)
       
-      // {
-      //   product: {
-      //     name: formData.product,
-      //     description:formData.description ,
-      //     img: formData.img,
-      //     cost: +formData.price,
-      //   }
-        
-      // }
-      
-      
-      // {
-      //   name: formData.product,
-      //   description: formData.description,
-      //   img: formData.img,
-      //   cost: formData.price,
-      // };
-
-      // Obtén los sabores seleccionados
-      
-
-      // Construye el objeto requestData con la sintaxis deseada
      
 
-      this.http.post('https://tukivaper.onrender.com/product', requestData)
+      this.http.post(environment.apiUrl+'product', requestData)
         .subscribe(
           (response) => {
             console.log('Respuesta del servidor:', response);

@@ -1,0 +1,16 @@
+
+  <nav class="menu nav">
+    
+      <a class="navbar-brand" href="#">
+        <img src="../../../assets/tukivapersinFondo.png" alt="Logo" width="50" height="50" class="logo ">
+      </a>
+      <h4>Tuki Vaper</h4>
+      <ng-container *ngIf="!ifsing">
+        <a routerLink="/singup">Sing Up</a>
+      </ng-container>
+      <ng-container *ngIf="ifsing">
+        <a (click)="logout()">Logout</a>
+      </ng-container>
+    
+  </nav>
+  

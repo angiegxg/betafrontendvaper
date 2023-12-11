@@ -10,6 +10,7 @@ import * as ProductSelectors from '../../state/selector/product.selector'
 import types, { SelectOption } from 'src/app/models/interface.interface';
 import { Observable } from 'rxjs';
 import { GobackComponent } from '../goback/goback.component';
+import { environment } from 'src/app/environments/environments';
 
 @Component({
   selector: 'app-form-sale',
@@ -107,46 +108,56 @@ submitForm() {
     
 
   const requestData = {
-    sellerId: +formData.sellerId,  // ID del vendedor
-    total: +formData.price * +formData.quantity,  // Monto total de la venta
-    productsSold: [
-           {
-               quantity:+ formData.quantity,
-               productId: +formData.productId,  // ID del producto
-              flavorId: +formData.flavorId,   // ID del sabor
-               price: +formData.price    // Precio del producto
-           }
-         
-       ]
+    sale:{
+      date: "2023-11-06T12:00:00", 
+      sellerId: +formData.sellerId,  // ID del vendedor
+      total: +formData.price * +formData.quantity,  // Monto total de la venta
+      productsSold: [
+             {
+                 quantity:+ formData.quantity,
+                 productId: +formData.productId,  // ID del producto
+                flavorId: +formData.flavorId,   // ID del sabor
+                 price: +formData.price    // Precio del producto
+             }
+           
+         ]
+    },
+    userId: +localStorage.getItem('id')!
      }
   
   
-  // [
-  //   {
-  //     fromStock: {
-  //       productId: +formData.fromproductId,
-  //       flavorId: +formData.fromflavorId,
-  //       sellerId: +formData.fromsellerId
-  //     },
-  //     toStock: {
-  //       productId: +formData.fromproductId,
-  //       flavorId: +formData.fromflavorId,
-  //       sellerId: +formData.toSellerId
-  //     },
-  //     quantity: +formData.quantity
-  //   }
-  // ];
+//   //{
+//     "sale":{
+//       "date": "2023-11-06T12:00:00",  // Inserta la fecha deseada en el formato correcto
+//   "sellerId": 1,  // ID del vendedor
+//   "total": 200,  // Monto total de la venta
+//   "productsSold": [
+//       {
+//           "quantity":1,
+//           "productId": 1,  // ID del producto
+//           "flavorId": 1,   // ID del sabor
+//           "price": 15     // Precio del producto
+//       }
+     
+//   ]
+
+//   },
+
+//   "userId": 1 
+  
+// }
   
 
     console.log(requestData)
 
 
 
-    this.http.post('https://tukivaper.onrender.com/sale', requestData)
+    this.http.post(environment.apiUrl+'sale', requestData)
     .subscribe(
       (response) => {
-        console.log('Respuesta del servidor:', response);
-        alert(response);
+        console.log('venta realizada correctamente:', response);
+        const responseString = JSON.stringify(response, null, 2)
+        alert(responseString);
       },
       (error) => {
         console.error('Error al enviar datos:', error);

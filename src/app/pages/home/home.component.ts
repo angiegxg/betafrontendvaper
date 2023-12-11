@@ -9,6 +9,7 @@ import * as productActions from '../../state/actions/product.actions'
 import * as sellerActions from '../../state/actions/seller.actions'
 import * as stockActions from '../../state/actions/stock.actions'
 import * as saleActions from '../../state/actions/sale.actions'
+import * as distributionActions from '../../state/actions/distribution.action'
 import { CardComponent } from 'src/app/components/card/card.component';
 @Component({
   selector: 'app-home',
@@ -30,6 +31,7 @@ export class HomeComponent {
     this.loadSellers()
     this.loadStocks()
     this.loadSales()
+    this.loadDistribution()
   }
   
 
@@ -54,6 +56,10 @@ export class HomeComponent {
   loadSales() {
     console.log("estoy en loadSales de home...")
     this.store.dispatch(saleActions.loadSales());
+  }
+  loadDistribution() {
+    console.log("estoy en loadDistribution de home...")
+    this.store.dispatch(distributionActions.loadDistributions());
   }
 
   entity=["Flavor","Product","Seller","Stock","Distributions","Sales"]

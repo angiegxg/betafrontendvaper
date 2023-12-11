@@ -1,0 +1,23 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px 0px;
+  height: 50px;
+  color: aliceblue;
+  align-items: baseline;
+  box-shadow: 0 0 12px #ff2e63;
+  padding-right: 20px;
+  padding-right: 20px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  filter: invert(1);
+}
+
+a {
+  text-decoration: none;
+  color: var(--third);
+  font-weight: bold;
+}/*# sourceMappingURL=nav.component.css.map */
