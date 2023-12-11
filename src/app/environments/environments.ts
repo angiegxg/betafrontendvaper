@@ -5,7 +5,7 @@ interface Environment {
   
   const env: Environment = {
     production: false,
-    apiUrl: "http://localhost:3001/",
+    apiUrl: "http://178.62.13.7:3001/",
   }
   
   export { env as environment }
